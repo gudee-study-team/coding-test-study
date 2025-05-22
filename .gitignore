@@ -1,8 +1,10 @@
+##### MacOS #####
+.DS_Store
+
 ##### IntelliJ #####
 .idea
 *.iml
 out
-
 
 ##### Visual Studio Code #####
 .vscode
