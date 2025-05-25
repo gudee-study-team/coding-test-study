@@ -1,9 +1,7 @@
 package d250522.b17269;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 public class Main {
@@ -79,12 +77,16 @@ public class Main {
             arr = arr2;
         }
 
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        if (arr[0] == 0)
-            bw.write(String.valueOf(arr[1]) + "%");
-        else
-            bw.write(String.valueOf(arr[0]) + String.valueOf(arr[1]) + "%");
-        bw.flush();
+        StringBuilder sb = new StringBuilder();
+        if (arr[0] == 0) {
+            sb.append(arr[1]);
+            sb.append('%');
+        } else {
+            sb.append(arr[0]);
+            sb.append(arr[1]);
+            sb.append('%');
+        }
+        System.out.println(sb.toString());
     }
 
 }
