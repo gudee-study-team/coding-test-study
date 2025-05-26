@@ -17,3 +17,9 @@ https://www.acmicpc.net/blog/view/56
 
 ## 출력 속도
 https://www.acmicpc.net/blog/view/57
+
+## 콘솔 입력
+https://wikidocs.net/226
+
+## StringBuilder
+https://wikidocs.net/276

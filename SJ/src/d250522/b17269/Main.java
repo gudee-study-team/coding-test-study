@@ -68,9 +68,7 @@ public class Main {
         while (arr.length > 2) {
             // 순차적으로 계산해서
             int[] arr2 = new int[arr.length - 1];
-            for (int i = 0; i < arr.length; i++) {
-                if (i == arr.length - 1)
-                    continue;
+            for (int i = 0; i < arr.length - 1; i++) {
                 arr2[i] = (arr[i] + arr[i + 1]) % 10;
             }
             // 기존 배열에 복사하고 반복
