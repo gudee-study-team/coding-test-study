@@ -1,10 +1,10 @@
-package practice01;
+package b2816;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 // 시간 초과로 통과 못함....
-public class Baekjoon2816 {
+public class Main {
 	public static void main(String[] args) {
 		// 1. 첫째 줄에 채널의 수가 입력됨(2~100)
 		// 2. 채널 이름이 한 줄에 하나씩 입력됨(최대 10글자씩)

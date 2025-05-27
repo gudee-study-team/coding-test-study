@@ -1,8 +1,8 @@
-package practice01;
+package b17269;
 
 import java.util.Scanner;
 
-public class Baekjoon17269 {
+public class Main {
 	public static void main(String[] args) {
 		// 1. 첫째 줄에 두 이름의 길이(2~100), 둘째 줄에 이름 A와 B를 입력받음(대문자)
 		// 2. 출력: 이름궁합(단, 십의 자리가 0일 경우엔 일의 자리만 출력)

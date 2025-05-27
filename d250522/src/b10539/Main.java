@@ -1,8 +1,8 @@
-package practice01;
+package b10539;
 
 import java.util.Scanner;
 
-public class Baekjoon10539 {
+public class Main {
 	public static void main(String[] args) {
 		// 1. 첫째 줄에 수열 B의 길이(1~100)가 입력됨
 		// 2. 둘째 둘에 길이만큼 정수가 주어짐(범위:1~10^9)
