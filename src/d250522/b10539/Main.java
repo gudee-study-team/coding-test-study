@@ -1,6 +1,8 @@
+package d250522.b10539;
+
 import java.util.Scanner;
 
-public class P10539 {
+public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 

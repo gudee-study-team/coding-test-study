@@ -1,8 +1,10 @@
+package d250522.b17269;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class P17269 {
+public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     List<Integer> list = new ArrayList<>();

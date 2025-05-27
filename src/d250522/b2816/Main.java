@@ -1,6 +1,8 @@
+package d250522.b2816;
+
 import java.util.Scanner;
 
-public class P2816 {
+public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
