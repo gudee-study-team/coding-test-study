@@ -15,7 +15,10 @@ public class Main {
             arr[i] = Integer.parseInt(buff[i]);
         }
 
-        // 점화식 계산해서 새로운 배열에 입력
+        /* 점화식 계산해서 새로운 배열에 입력
+         * a/1	(a+b)/2     (a+b+c)/3
+         * a	2x - a		3x - a - b
+        */
         int[] answer = new int[n];
         int sum = 0;
         for (int i = 0; i < n; i++) {
