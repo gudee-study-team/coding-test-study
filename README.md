@@ -21,7 +21,7 @@
 </details>
 
 <details>
-<summary><h2>2주차 (5/27~6/3)</h2></summary>
+<summary><h2>2주차 (5/27~6/4)</h2></summary>
 <ul>
   <li>브론즈2: 2798</li>
   <li>브론즈2: 2231</li>
