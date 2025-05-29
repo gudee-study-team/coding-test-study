@@ -1,53 +1,86 @@
 package d250527.b1018;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /*
- * 입력
- * 첫째줄 - 카드 갯수 N(3~100) -> 100^3 = 10^8 => 3중 반복문 가능, 합의 최댓값 M(10~300000)
- * 둘째줄 - N만큼의 숫자들(0~100000) => int 타입 사용
- * 출력: M과 최대한 가까운 카드 3장의 합
+ * 어떻게 접근해야 하지......
+ * 8*8로 자르는 모든 경우의 수를 생각해 봤을 때
+ * B/W 중 그 수가 적은 색깔을 칠하고, 칠한 갯수 저장
+ * 칠한 갯수가 가장 적은 것 출력
  * 
- * 모든 경우의 수를 구해볼까
- * 3중 반복문 돌려서 합이 M보다 작다면 ArrayList에 넣고
- * ArrayList를 오름차순 정렬한 다음
- * 마지막 인덱스의 값 출력
+ * 8*8로 자르는 모든 경우의 수....를 어떻게 다룰까
+ * 8*8의 2차원 배열을 생성하고, 거기다 매번 초기화를 해줄까
+ * 
+ * M*N의 보드.... 입력은 N M의 순서로 들어옴
+ * 
+ * *****
+ * 
  */
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		// N(cardNum), M(max)을 입력받음
-		int cardNum = sc.nextInt();
-		int max = sc.nextInt();
+		int iNum = sc.nextInt();
+		int jNum = sc.nextInt();
+		sc.nextLine();
 		
-		// 숫자들을 담을 배열 선언
-		Integer[] cardNums = new Integer[cardNum];
+		String[][] board = new String[iNum][jNum];		
 		
-		// N만큼의 숫자들을 입력받아 배열 초기화
-		for (int i = 0; i < cardNums.length; i++) {
-			cardNums[i] = sc.nextInt();
-		}
-		
-		// 모든 합의 결과를 담을 ArrayList 선언
-		ArrayList<Integer> sumList = new ArrayList<Integer>();
-		
-		// 배열을 3중 반복문 안에서 돌면서 ArrayList에 추가
-		for (int i = 0; i < cardNums.length; i++) {
-			for (int j = 0; j < cardNums.length; j++) {
-				for (int j2 = 0; j2 < cardNums.length; j2++) {
-					if (i == j || i == j2 || j == j2) continue; // 같은 카드를 두 번 이상 뽑을 수는 없으므로, 이 경우 다음 반복으로 넘어감					
-					int Cardsum = cardNums[i] + cardNums[j] + cardNums[j2];
-					if (Cardsum > max) continue; // 합이 최댓값보다 크면 리스트에 추가하지 않음
-					sumList.add(Cardsum);
-				}
+		for (int i = 0; i < board.length; i++) { // 10번 반복
+			String inputLine = sc.nextLine();
+			for (int j = 0; j < board[i].length; j++) { // 13번 반복
+				board[i][j] = inputLine.charAt(j)+"";
 			}
 		}
 		
-		// ArrayList 오름차순 정렬
-		Collections.sort(sumList);
-		System.out.println(sumList.get(sumList.size() - 1));
+		// 가로, 세로 - 보드길이-체스판길이+1만큼 탐색
+		// [0][0]부터 시작하고, 탐색한 마지막 인덱스가 [체스판길이-1][체스판길이-1]이 되면 탐색 끝
+		// 시작 인덱스는 [0][0] [0][1]....과 같이 증가하다가 [0][7]이 되면 [1][0] [1][1].....
+		// 마지막 줄은 [7][0]....[7][7]
+		// 즉, i인덱스건 j인덱스건 시작 인덱스-끝 인덱스=7이 되면 끝난다는 것
+		// => 시작 인덱스-끝 인덱스=7이 되면 멈추기
+		int startIIdx = 0;
+		int endIIdx = 7;
+		int startJIdx = 0;
+		int endJIdx = 7;
+//		int countI = 1;
+//		int countJ = 1;
+		
+		int bNum = 0;
+		int wNum = 0;
+		
+		int minColoringNum = Integer.MAX_VALUE;
+		
+		while (true) {	
+			for (int i = startIIdx; i < endIIdx; i++) {
+				for (int j = startJIdx; j < endJIdx; j++) {
+					switch (board[i][j]) {
+						case "W" -> wNum++;
+						case "B" -> bNum++;
+					}
+				}
+				
+				if(endJIdx == board[i].length - 1) break;
+				
+				startJIdx++;
+				endJIdx++;
+			}
+			
+			int coloringNum = Math.abs(wNum-bNum);
+			
+			if (coloringNum == 0) {
+				System.out.println(0);
+				return;
+			} else if (coloringNum < minColoringNum) {
+				minColoringNum = coloringNum;
+			}
+			
+			if(endIIdx == board.length - 1) break;
+			
+			startIIdx++;
+			endIIdx++;
+		}
+		
+		System.out.println(minColoringNum);
 	}
 }
