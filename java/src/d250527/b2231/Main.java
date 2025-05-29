@@ -9,25 +9,24 @@ public class Main {
         BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in));
         String buff = br.readLine();
+        int input = Integer.parseInt(buff);
 
-        int n = Integer.parseInt(buff);
-        int len = buff.length();
-
-        // 자릿수, /= 연산에 쓰려면 문자열 길이보다 하나 작게
-        int figure = 1;
-        for (int i = 0; i < len - 1; i++) {
-            figure *= 10;
+        int answer = 0;
+        // 생성자는 9 * 문자 개수 보다 작아질 수 없음
+        int start = input - 9 * buff.length();
+        for (int i = start; i < input; i++) {
+            int num = i;
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (i + sum == input) {
+                answer = i;
+                break;
+            }
         }
 
-        int[] arr = new int[len];
-        for (int i = 0; n > 10; i++) {
-
-        }
-
-    }
-
-    @Override
-    public String toString() {
-        return "Main []";
+        System.out.println(answer);
     }
 }
