@@ -17,7 +17,7 @@ public class Main {
       numbers[i] = scanner.nextInt();
     }
 
-    // [문제를 다시 풀면서 개선한 부분]
+    // [문제를 다시 풀면서 개선한 부분]-----
     // 입력받은 수를 정렬해서 앞부터 3장씩 고르도록 변경
     // 합이 M을 넘으면 이후의 카드를 선택할 필요가 없음 => 수행시간 감소
 
@@ -38,6 +38,23 @@ public class Main {
       }
     }
 
+    // -------------------------------------
+
     System.out.println(result);
   }
 }
+
+
+
+//    [기존 코드]
+
+//  int result = 0;
+//  for (int i = 0; i < numbers.length - 2; i++) {
+//    for (int j = i + 1; j < numbers.length - 1; j++) {
+//      for (int k = j + 1; k < numbers.length; k++) {
+//        int sum = numbers[i] + numbers[j] + numbers[k];
+//        if (sum > m) continue;
+//        if (sum > result) result = sum;
+//      }
+//    }
+//  }
