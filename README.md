@@ -14,8 +14,8 @@
 <details>
 <summary><h2>1주차 (5/22~5/27)</h2></summary>
 <ul>
-  <li>브론즈1: 10539</li>
-  <li>브론즈2: 2816</li>
+  <li>브론즈1: 2816</li>
+  <li>브론즈2: 10539</li>
   <li>실버5: 17269</li>
 </ul>
 </details>
@@ -36,3 +36,5 @@ https://velog.io/@sezeme1212/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%8A%A4%ED%8
 https://velog.io/@hyeseong-int/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%8A%A4%ED%84%B0%EB%94%94-%EC%A7%84%ED%96%89%EB%B0%A9%EC%8B%9D
 ## Github로 코드 리뷰 하는 방법
 https://devlog-wjdrbs96.tistory.com/231
+## Github Fork 사용 하는 방법
+https://youtaek123.tistory.com/38
