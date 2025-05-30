@@ -26,7 +26,7 @@ public class b2816 {
                     result[count++] = 4;
                 }
             }
-           
+        
         }
         //KBS1 이동 후 화살표를 한칸 아래로 이동 
         result[count++] =1;
@@ -42,7 +42,7 @@ public class b2816 {
                     result[count++] = 4;
                 }
             }
-           
+        
         }
         //결과 출력
         for(int i = 0 ; i<count ; i++){
