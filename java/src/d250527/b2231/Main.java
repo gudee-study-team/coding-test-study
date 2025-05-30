@@ -17,10 +17,12 @@ public class Main {
         for (int i = start; i < input; i++) {
             int num = i;
             int sum = 0;
+            // 각 자리를 잘라서 더해줌
             while (num > 0) {
                 sum += num % 10;
                 num /= 10;
             }
+            // 탐색한 값 + 각 자리 합이 입력값과 같으면 탈출
             if (i + sum == input) {
                 answer = i;
                 break;

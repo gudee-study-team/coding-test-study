@@ -19,7 +19,7 @@ public class Main {
             arr[i] = Integer.parseInt(buff[i]);
         Arrays.sort(arr);
 
-        // 가장 큰 값(i)부터 하나씩 올리면서 내부에서 전체적으로 반복
+        // 가장 큰 값(i)을 하나씩 올리면서 내부에서 전체적으로 탐색
         int max = 0;
         iLoop: for(int i = 2; i < n; i++){
             jLoop: for(int j = 1; j < i; j++){
