@@ -7,53 +7,93 @@ import java.util.Scanner;
  * 1. 흰검흰검...
  * 2. 검흰검흰...
  * 
+ * 8*8로 자르고 흰검흰검/검흰검흰 두 가지 경우의 수를 체크
+ * 색깔 다르면 칠하는 횟수 1 증가
  */
-public class Main2 {
-	public static void main(String[] args) {
+public class Main {
+	public static int checkFromWhite(String board) {
+		String chessLine = "WBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBW";
+		int coloringCnt = 0;
+		
+		for (int i = 0; i < board.length(); i++) {
+			if (board.charAt(i) != chessLine.charAt(i)) coloringCnt++;
+		}
+		
+		return coloringCnt;
+	}
+	
+	public static int checkFromBlack(String board) {
+		String chessLine = "BWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWB";
+		int coloringCnt = 0;
+		
+		for (int i = 0; i < board.length(); i++) {
+			if (board.charAt(i) != chessLine.charAt(i)) coloringCnt++;
+		}
+		
+		return coloringCnt;
+	}
+	
+	public static String cutBoard(String board, int m, int startIdx, int endIdx) {
+		String cutResult = "";
+		
+		for (int i = 0; i < 8; i++) {
+			cutResult += board.substring(startIdx, endIdx + 1);
+			startIdx += m;
+			endIdx += m;
+		}		
+		return cutResult;
+	}
+	
+	
+	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
 		
-		// N, M을 입력받음
+		// N,M을 입력받음
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		sc.nextLine();
 		
-		// N*M만큼 입력받은 값들을 저잘할 배열 생성
-		char[][] board = new char[n][m];		
+		// N*M만큼 입력받은 값들을 저장할 String 생성
+		String board = "";
 		
-		for (int i = 0; i < board.length; i++) { // N번 반복
-			String inputLine = sc.nextLine();
-			for (int j = 0; j < board[i].length; j++) { // M번 반복
-				board[i][j] = inputLine.charAt(j);
-			}
+		for (int i = 0; i < n; i++) { // N번 반복
+			board += sc.nextLine();
 		}
 		
-		// 가로, 세로 - 보드길이-체스판길이+1만큼 탐색
-		// [0][0]부터 시작하고, 탐색한 마지막 인덱스가 [체스판길이-1][체스판길이-1]이 되면 탐색 끝
-		// 시작 인덱스는 [0][0] [0][1]....과 같이 증가하다가 [0][7]이 되면 [1][0] [1][1].....
-		// 마지막 줄은 [7][0]....[7][7]
-		// 즉, i인덱스건 j인덱스건 시작 인덱스-끝 인덱스=7이 되면 끝난다는 것
-		// => 시작 인덱스-끝 인덱스=7이 되면 멈추기
-		int startIIdx = 0;
-		int endIIdx = 7;
-		int startJIdx = 0;
-		int endJIdx = 7;
+		int minColoringCnt = Integer.MAX_VALUE;
 		
-		// TODO 어떻게 빠져나올지 생각.....
-		while (true) {	
-			for (int i = startIIdx; i <= endIIdx; i++) { // 반복문I(열)
-				for (int j = startJIdx; j <= endJIdx; j++) { // 반복문J(행)
-					System.out.println("i: "+i+" j: "+j);
-					
-				}
+		int startIdxOnLine = 0;
+		int endIdxOnLine = 7;
+		int startIdx = 0;
+		int endIdx = 7;
+		
+		while (true) {
+			// board를 8*8 만큼 잘라 칠하는 횟수 체크
+			// 1. 0~7, 0+m~7+m....8번 반복 후, 0+m~7+m 다시 8번 반복
+			// 	  이 때 반복 횟수는 n - 8 + 1
+			// 2. 시작 인덱스, 끝 인덱스를 1씩 증가시킨 후 1~8부터 다시 위의 반복 시작
+			//    만약 끝 인덱스 == 너비 가 되면 반복 중지
+			for (int i = 1; i <= n - 8 + 1; i++) {
+				String str = cutBoard(board, m, startIdx, endIdx);
 				
-				System.out.println();
-
-				startIIdx++;
-				endIIdx++;
+				// case1: 흰색부터 시작
+				int checkresult = checkFromWhite(str);
+				minColoringCnt = checkresult < minColoringCnt ? checkresult : minColoringCnt;
+				
+				// case2: 검은색부터 시작
+				checkresult = checkFromBlack(str);
+				minColoringCnt = checkresult < minColoringCnt ? checkresult : minColoringCnt;
+				
+				startIdx += m;
+				endIdx += m;
 			}
 			
-			startJIdx++;
-			endJIdx++;
+			startIdx = ++startIdxOnLine;
+			endIdx = ++endIdxOnLine;
+			
+			if (endIdxOnLine == m) break;
 		}
+		
+		System.out.println(minColoringCnt);
 	}
 }
