@@ -12,22 +12,22 @@ import java.util.Scanner;
  */
 public class Main {
 	public static int checkFromWhite(String board) {
-		String chessLine = "WBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBW";
+		String chessBoard = "WBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBW";
 		int coloringCnt = 0;
 		
 		for (int i = 0; i < board.length(); i++) {
-			if (board.charAt(i) != chessLine.charAt(i)) coloringCnt++;
+			if (board.charAt(i) != chessBoard.charAt(i)) coloringCnt++;
 		}
 		
 		return coloringCnt;
 	}
 	
 	public static int checkFromBlack(String board) {
-		String chessLine = "BWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWB";
+		String chessBoard = "BWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWBBWBWBWBWWBWBWBWB";
 		int coloringCnt = 0;
 		
 		for (int i = 0; i < board.length(); i++) {
-			if (board.charAt(i) != chessLine.charAt(i)) coloringCnt++;
+			if (board.charAt(i) != chessBoard.charAt(i)) coloringCnt++;
 		}
 		
 		return coloringCnt;
