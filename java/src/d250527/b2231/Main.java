@@ -9,25 +9,26 @@ public class Main {
         BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in));
         String buff = br.readLine();
+        int input = Integer.parseInt(buff);
 
-        int n = Integer.parseInt(buff);
-        int len = buff.length();
-
-        // 자릿수, /= 연산에 쓰려면 문자열 길이보다 하나 작게
-        int figure = 1;
-        for (int i = 0; i < len - 1; i++) {
-            figure *= 10;
+        int answer = 0;
+        // 생성자는 문자열 길이 * 9 보다 작아질 수 없음
+        int start = input - buff.length() * 9;
+        for (int i = start; i < input; i++) {
+            int num = i;
+            int sum = 0;
+            // 각 자리를 잘라서 더해줌
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            // 탐색한 값 + 각 자리 합이 입력값과 같으면 탈출
+            if (i + sum == input) {
+                answer = i;
+                break;
+            }
         }
 
-        int[] arr = new int[len];
-        for (int i = 0; n > 10; i++) {
-
-        }
-
-    }
-
-    @Override
-    public String toString() {
-        return "Main []";
+        System.out.println(answer);
     }
 }
