@@ -25,7 +25,7 @@ public class Main {
             jLoop: for(int j = 1; j < i; j++){
                 for(int k = 0; k < j; k++){
                     int curr = arr[i] + arr[j] + arr[k];
-                    // 목표 값을 넘어버리면 가장 안쪽 루프 스킵
+                    // 목표 값을 넘어버리면 가장 안쪽 루프(k) 스킵
                     if(curr > m) continue jLoop;
                     else {
                         if(curr > max) {

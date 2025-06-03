@@ -14,36 +14,40 @@ public class Main {
 
         // 값을 받아서 배열로 저장
         char[][] arr = new char[n][];
-        for(int i=0; i<n; i++){
-            String tmp = br.readLine();
-            arr[i] = tmp.toCharArray();
+        for (int i = 0; i < n; i++) {
+            buff = br.readLine();
+            arr[i] = buff.toCharArray();
         }
 
         // 최종 값을 담을 변수
         int count = Integer.MAX_VALUE;
-        // 비교를 위한 배열
-        char[] checker = {'W','B'};
+        // 체스판 값 비교
+        char[] checker = { 'W', 'B' };
         // 전체 범위
-        for(int i = 0; i < n - 8 + 1; i++){
-            for(int j = 0; j < m - 8 + 1; j++){
-                
+        for (int i = 0; i <= n - 8; i++) {
+            for (int j = 0; j <= m - 8; j++) {
+
                 int wCount = 0, bCount = 0;
-                // 잘라낸 범위
-                for(int k = i; k < i + 8; k++){
-                    for(int l = j; l < j + 8; l++){
+                // 8 x 8 범위
+                for (int k = i; k < i + 8; k++) {
+                    for (int l = j; l < j + 8; l++) {
                         // 시작이 W일때 B일때를 나누어서 카운트
                         int idx = (i + j) % 2;
-                        if((k + l) % 2 == 0) {
-                            if(arr[k][l] != checker[idx]) wCount++;
-                            else bCount++;
+                        if ((k + l) % 2 == 0) {
+                            if (arr[k][l] != checker[idx])
+                                wCount++;
+                            else
+                                bCount++;
                         } else {
-                            if(arr[k][l] == checker[idx]) wCount++;
-                            else bCount++;
+                            if (arr[k][l] == checker[idx])
+                                wCount++;
+                            else
+                                bCount++;
                         }
                     }
                 }
                 // 더 작은 값을 반영
-                int subCount =  wCount < bCount ? wCount : bCount;
+                int subCount = wCount < bCount ? wCount : bCount;
                 count = count < subCount ? count : subCount;
             }
         }

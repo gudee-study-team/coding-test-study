@@ -12,8 +12,8 @@ public class Main {
         int input = Integer.parseInt(buff);
 
         int answer = 0;
-        // 생성자는 9 * 문자 개수 보다 작아질 수 없음
-        int start = input - 9 * buff.length();
+        // 생성자는 문자열 길이 * 9 보다 작아질 수 없음
+        int start = input - buff.length() * 9;
         for (int i = start; i < input; i++) {
             int num = i;
             int sum = 0;
