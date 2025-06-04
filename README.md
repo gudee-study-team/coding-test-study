@@ -29,6 +29,15 @@
 </ul>
 </details>
 
+<details>
+<summary><h2>3주차 (6/4~6/10)</h2></summary>
+<ul>
+  <li>실버5: 1427</li>
+  <li>실버5: 11650</li>
+  <li>실버5: 1181</li>
+</ul>
+</details>
+
 # 🔖 참고 사이트
 ## 알고리즘 스터디 기획
 https://velog.io/@sezeme1212/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%8A%A4%ED%84%B0%EB%94%94-%EA%B8%B0%ED%9A%8D%EC%95%88
