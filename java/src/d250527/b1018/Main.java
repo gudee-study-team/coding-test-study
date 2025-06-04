@@ -1,9 +1,7 @@
-package d250527;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class b1018 {
+public class Main {
   public static void main(String[] args) throws Exception {
     //체스판이 왼쪽 위가 흰색일 경우, 검정일 경우 두가지 뿐이다. 두 가지 체스판을 입력된 체스판의 일부와 비교하여 색이 다른 체스판의 개수가 가장 적을 때 그수를 출력
     

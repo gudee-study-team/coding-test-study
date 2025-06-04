@@ -1,9 +1,7 @@
-package d250527;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class b2231 {
+public class Main {
   public static void main(String[] args) throws Exception{
     //자연수 N의 생성자 중 가장 작은 값- > N까지의 값들의 분해합 중 가장 작은값 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -1,9 +1,7 @@
-package d250527;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class b2798 {
+public class Main {
   
     public static void main(String[] args) throws Exception{
       //중첩 반복문으로 3개의 값을 합하는 모든 경우의 수를 구하고 그중 500보다 작은 최대값을 출력
