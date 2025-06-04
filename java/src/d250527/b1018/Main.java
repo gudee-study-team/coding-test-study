@@ -27,11 +27,11 @@ public class Main {
             for (int j = 0; j <= m - 8; j++) {
 
                 int wCount = 0, bCount = 0;
+                int idx = (i + j) % 2;
                 // 8 x 8 범위
                 for (int k = i; k < i + 8; k++) {
                     for (int l = j; l < j + 8; l++) {
-                        // 시작이 W일때 B일때를 나누어서 카운트
-                        int idx = (i + j) % 2;
+                        // W일때 B일때를 나누어서 카운트
                         if ((k + l) % 2 == 0) {
                             if (arr[k][l] != checker[idx])
                                 wCount++;
