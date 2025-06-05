@@ -22,7 +22,7 @@ public class Main {
 		int input = sc.nextInt();
 		
 		for (int i = 0; i < input; i++) {
-			int tempI = i;
+			int tempI = i; // for문의 인덱스 i는 놔두고, i값을 while문 안에서 바꾸기 위해 다른 변수에 옮겨담음
 			int digitSum = 0; // i의 각 자리수의 합
 			
 			// 각 자리수의 합을 구함
