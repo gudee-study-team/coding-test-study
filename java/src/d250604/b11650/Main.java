@@ -8,7 +8,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        // Pair 클래스로 좌표를 입력받음
+        // Pair 클래스로 좌표를 저장
         List<Pair> list = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             String[] buff = br.readLine().split(" ");
