@@ -8,7 +8,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        // 중복 제거를 위해 Set로 입력받음
+        // 중복 제거를 위해 Set에 저장
         Set<String> set = new HashSet<>(n);
         for (int i = 0; i < n; i++) {
             set.add(br.readLine());
