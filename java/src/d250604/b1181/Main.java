@@ -3,6 +3,7 @@ package d250604.b1181;
 import java.io.*;
 import java.util.*;
 
+// 단어 정렬
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

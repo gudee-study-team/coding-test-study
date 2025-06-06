@@ -3,6 +3,7 @@ package d250604.b11650;
 import java.io.*;
 import java.util.*;
 
+// 좌표 정렬하기
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
