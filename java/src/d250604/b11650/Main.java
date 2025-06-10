@@ -11,6 +11,9 @@ public class Main {
       int num =Integer.parseInt(br.readLine());
       int [][] arr =new int[num][];
       for(int i = 0 ; i < num; i++){
+        //3. Arrays.stream()은 문자열 배열에서 Stream<String> 객체를 생성합니다.
+        //4. mapToInt(Integer::parseInt)은 스트림의 각 요소에 Integer 클래스의 parseInt() 메서드를 적용하여 문자열을 int로 변환합니다.
+        //5. toArray()는 최종적으로 int 배열로 변환합니다.
         arr[i] =Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray(); 
       }
       Arrays.sort(arr, new Comparator<int[]>() {
