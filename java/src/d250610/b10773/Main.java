@@ -1,6 +1,7 @@
 package d250610.b10773;
 
 import java.io.*;
+import java.util.*;
 
 /* 제로
  * 첫 번째 줄에 정수 K가 주어진다. (1 ≤ K ≤ 100,000)

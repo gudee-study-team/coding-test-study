@@ -10,7 +10,7 @@ import java.util.*;
  * 하나의 괄호 문자열의 길이는 2 이상 50 이하이다. 
  */
 public class Main {
-    
+
     public static void main(String[] args) throws  Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
