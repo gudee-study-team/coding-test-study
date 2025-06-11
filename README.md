@@ -14,7 +14,7 @@
  [**[Gudee Coding Test Study]**](https://wax-moonflower-a1a.notion.site/Gudee-Coding-Test-Study-208f34bc66de80bc91e6ee936e4a16b3?source=copy_link)
 
 # 📝 풀 문제
-<details>
+<details data=1>
 <summary><h2>1주차 (5/22~5/27)</h2></summary>
 <ul>
   <li>브론즈1: 2816</li>
@@ -23,7 +23,7 @@
 </ul>
 </details>
 
-<details>
+<details data=2>
 <summary><h2>2주차 (5/27~6/4)</h2></summary>
 <ul>
   <li>브론즈2: 2798</li>
@@ -32,12 +32,21 @@
 </ul>
 </details>
 
-<details>
+<details data=3>
 <summary><h2>3주차 (6/4~6/10)</h2></summary>
 <ul>
   <li>실버5: 1427</li>
   <li>실버5: 11650</li>
   <li>실버5: 1181</li>
+</ul>
+</details>
+
+<details data=4>
+<summary><h2>4주차 (6/10~6/17)</h2></summary>
+<ul>
+  <li>실버4: 10773</li>
+  <li>실버4: 9012</li>
+  <li>실버4: 2164</li>
 </ul>
 </details>
 
