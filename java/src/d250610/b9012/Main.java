@@ -1,6 +1,5 @@
 package d250610.b9012;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -25,9 +24,6 @@ import java.util.Stack;
 // ())(() 인 경우 YES가 출력됨
 // VPS + ) 혹은 ( + VPS 인 경우에는 VPS가 될 수 없음
 
-// LinkedList에 넣어서 ()면 빼고 빼고....남는게 있으면 NO, 없으면 YES 
-// ㄴ근데 이러면 로직이 복잡해지기도 하고, 스택큐를 활용하는 게 아님
-
 /*
  * 마지막값부터 pop()
  * 2 )면 right++
@@ -38,15 +34,15 @@ import java.util.Stack;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
 		Stack<Character> parentheses = new Stack<>();
 		int t = sc.nextInt();
 		sc.nextLine();
 		
 		// t번 입력받고, 입력받을 때마다 출력
-		
 		for (int i = 0; i < t; i++) {
-			// 문자열 한 줄을 입력받아 Queue에 한 문자씩 넣음
-			for (Character c : sc.nextLine().toCharArray()) {
+			// 문자열 한 줄을 입력받아 Stack에 한 문자씩 넣음
+			for (char c : sc.nextLine().toCharArray()) {
 				parentheses.push(c);
 			}
 			
@@ -55,8 +51,8 @@ public class Main {
 			int left = 0;
 			
 			switch(parentheses.pop()) {
-				case '(' -> result = "NO";
-				case ')' -> left++;
+			case '(' -> result = "NO";
+			case ')' -> right++;
 			}
 			
 			loop: while (!parentheses.isEmpty()) {
@@ -65,9 +61,9 @@ public class Main {
 						if (right == 0) {
 							result = "NO";
 							break loop;
-						} else right++;
+						} else left++;
 					}
-					case ')' -> left++;
+					case ')' -> right++;
 				}
 				
 				if (right == left) {
@@ -76,7 +72,12 @@ public class Main {
 				}
 			}
 			
+			if (right != left) result = "NO";
+			
 			System.out.println(result);
+			parentheses.clear();
+			right = 0;
+			left = 0;
 		}
 	}
 }
