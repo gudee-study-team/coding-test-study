@@ -25,7 +25,7 @@ public class Main {
                 //  (를 만나면 스택에 저장
                 if (buff.charAt(j) == '(') stk.push(true);
                 else {
-                    // )를 만나면 스택에 데이터가 남아 있다면 팝
+                    // )를 만났을 때 스택에 데이터가 남아 있다면 팝
                     if (!stk.isEmpty()) stk.pop();
                     // 없다면 flag에 표시해주고 루프 탈출
                     else {
