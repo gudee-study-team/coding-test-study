@@ -19,7 +19,7 @@ public class Main {
         for (int i = 0; i < t; i++) {
             // 입력을 순회하면서
             String buff = br.readLine();
-            Deque<Boolean> stk = new ArrayDeque<>();
+            Deque<Boolean> stk = new ArrayDeque<>(buff.length());
             boolean flag = true;
             for (int j = 0; j < buff.length(); j++) {
                 //  (를 만나면 스택에 저장

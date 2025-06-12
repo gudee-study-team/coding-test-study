@@ -16,7 +16,7 @@ public class Main {
         int k = Integer.parseInt(br.readLine());
 
         // 스택으로 입력 받고, 입력이 0이면 팝
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stack = new ArrayDeque<>(k);
         for (int i = 0; i < k; i++) {
             int tmp = Integer.parseInt(br.readLine());
             if (tmp == 0) stack.pop();
