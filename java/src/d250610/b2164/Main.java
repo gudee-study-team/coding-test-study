@@ -1,5 +1,7 @@
+// https://www.acmicpc.net/problem/2164
 package d250610.b2164;
 
+// 뭐가 틀린건지 감도 안오네
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +10,7 @@ import java.util.Stack;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		 
 		// 카드 갯수 입력
 		int cardNum = Integer.parseInt(br.readLine());
 		br.close();
@@ -47,9 +49,9 @@ public class Main {
 			// 어떻게?
 			// 2로 나눈 몫
 			// 그 몫을 가지고 또 2로 나누고
-			// 몫이 7 이하가 됐을 때, 2/4/8이면 2의 제곱수
+			// 몫이 8 이하가 됐을 때, 2/4/8이면 2의 제곱수			
 			int target = i;
-			while (target > 7) {
+			while (target >= 8 && target % 2 == 0) {
 				target /= 2;
 			}
 			
