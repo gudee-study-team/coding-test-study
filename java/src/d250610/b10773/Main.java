@@ -3,7 +3,8 @@ package d250610.b10773;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Main {
 	// 입력받은 수의 총합을 구함
@@ -15,7 +16,8 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int k = Integer.parseInt(br.readLine());
 		
-		Stack<Integer> memory = new Stack<Integer>();
+		Deque<Integer> memory = new LinkedList<Integer>();
+		
 		int sum = 0;
 		// k번 입력받음
 		for (int i = 0; i < k; i++) {
@@ -23,12 +25,13 @@ public class Main {
 			
 			// 0일 때: 전에 입력한 수를 총합에서 뺌
 			if (num == 0) {
-				sum -= memory.pop();
+				sum -= memory.pollLast();
+				
 			}
 			// 0이 아닐 때: 총합에 더함
 			else {
 				sum += num;
-				memory.push(num);
+				memory.addLast(num);
 			}
 		}
 		

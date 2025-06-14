@@ -1,23 +1,10 @@
 package d250610.b9012;
 
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Deque;
+import java.util.LinkedList;
 
-/*
- * VPS 안에 VPS가 들어가있으면 -> VPS
- * VPS + VPS 면 -> VPS
- * 반대로,
- * !VPS 면 -> VPS 안에 VPS가 들어가있지 않음
- * !VPS 면 -> VPS + VPS 가 아님
- */
-
-/*
- * 입력
- * 첫째줄: T (입력 데이터 수)
- * 한 줄씩 괄호 문자열 (길이: 2~50)
- * 출력
- * VPS이면 YES, 아니면 NO
- */
 
 // (이면 +1, )이면 -1을 더해서 0이면 YES 출력
 // ㄴ 실패. 왜?
@@ -32,31 +19,33 @@ import java.util.Stack;
  * 4 right == left 면 둘 다 0으로 만들고 2번부터 다시 시작
  */
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws Exception {
+//		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		Stack<Character> parentheses = new Stack<>();
-		int t = sc.nextInt();
-		sc.nextLine();
+//		Stack<Character> parentheses = new Stack<>();
+		Deque<Character> parentheses = new LinkedList<Character>();
+		int t = Integer.parseInt(br.readLine());
 		
 		// t번 입력받고, 입력받을 때마다 출력
 		for (int i = 0; i < t; i++) {
 			// 문자열 한 줄을 입력받아 Stack에 한 문자씩 넣음
-			for (char c : sc.nextLine().toCharArray()) {
-				parentheses.push(c);
+			for (char c : br.readLine().toCharArray()) {
+//				parentheses.push(c);
+				parentheses.addLast(c);
 			}
 			
 			String result = "YES";
 			int right = 0;
 			int left = 0;
 			
-			switch(parentheses.pop()) {
+			switch(parentheses.pollLast()) {
 			case '(' -> result = "NO";
 			case ')' -> right++;
 			}
 			
 			loop: while (!parentheses.isEmpty()) {
-				switch(parentheses.pop()) {
+				switch(parentheses.pollLast()) {
 					case '(' -> {
 						if (right == 0) {
 							result = "NO";
