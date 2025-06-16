@@ -1,15 +1,8 @@
+// https://www.acmicpc.net/problem/9012
 package d250610.b9012;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Deque;
-import java.util.LinkedList;
-
-
-// (이면 +1, )이면 -1을 더해서 0이면 YES 출력
-// ㄴ 실패. 왜?
-// ())(() 인 경우 YES가 출력됨
-// VPS + ) 혹은 ( + VPS 인 경우에는 VPS가 될 수 없음
 
 /*
  * 마지막값부터 pop()
@@ -18,55 +11,37 @@ import java.util.LinkedList;
  *   right (를 만나면 no 리턴
  * 4 right == left 면 둘 다 0으로 만들고 2번부터 다시 시작
  */
+/*
+ * 굳이 마지막값부터 할 필요X
+ * 카운트로 풀되 (왼쪽 괄호 갯수 - 오른쪽 괄호 갯수 == 0?) 의 조건으로만 판단하게 되면 예외 커버 못 함
+ * 첫 번째 값부터 시작해서 ( 면 left++, )면 left--
+ * left == 0이면 올바른 괄호 문자열
+ * 단, 확인하는 도중 left가 -가 된다면 ( 없이 )가 나왔다는 뜻이므로 바로 올바르지 않은 괄호 문자열로 판단
+ */
 public class Main {
 	public static void main(String[] args) throws Exception {
-//		Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-//		Stack<Character> parentheses = new Stack<>();
-		Deque<Character> parentheses = new LinkedList<Character>();
-		int t = Integer.parseInt(br.readLine());
+		int t = Integer.parseInt(br.readLine()); // 괄호 문자열의 줄 수
+		StringBuilder result = new StringBuilder(); // 여기에 판정 결과 저장
 		
-		// t번 입력받고, 입력받을 때마다 출력
 		for (int i = 0; i < t; i++) {
-			// 문자열 한 줄을 입력받아 Stack에 한 문자씩 넣음
-			for (char c : br.readLine().toCharArray()) {
-//				parentheses.push(c);
-				parentheses.addLast(c);
-			}
-			
-			String result = "YES";
-			int right = 0;
+			String str = br.readLine();
 			int left = 0;
 			
-			switch(parentheses.pollLast()) {
-			case '(' -> result = "NO";
-			case ')' -> right++;
-			}
-			
-			loop: while (!parentheses.isEmpty()) {
-				switch(parentheses.pollLast()) {
-					case '(' -> {
-						if (right == 0) {
-							result = "NO";
-							break loop;
-						} else left++;
-					}
-					case ')' -> right++;
+			for (char c : str.toCharArray()) {
+				switch (c) {
+					case '(' -> left++;
+					case ')' -> left--;
 				}
 				
-				if (right == left) {
-					right = 0;
-					left = 0;
-				}
+				if (left < 0) break;
 			}
 			
-			if (right != left) result = "NO";
-			
-			System.out.println(result);
-			parentheses.clear();
-			right = 0;
-			left = 0;
+			if (left == 0) result.append("YES\n");
+			else result.append("NO\n");
 		}
+		
+		System.out.println(result);
 	}
 }

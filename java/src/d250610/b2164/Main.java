@@ -1,7 +1,6 @@
 // https://www.acmicpc.net/problem/2164
 package d250610.b2164;
 
-// 뭐가 틀린건지 감도 안오네
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
