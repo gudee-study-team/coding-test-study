@@ -21,6 +21,9 @@ public class Main {
     }
 
     static StringBuilder method(int num1, int num2) {
+        // 각각의 줄에 언더바를 붙이기 위해 문자열을 배열로 저장
+        // String.join()으로 조합하기 위해 0번 인덱스에 공백을 줌
+        // 마지막 재귀에서는 문장이 바뀌기 때문에 공통 부분만 후에 입력
         String[] arr = {
             "",
             "",
@@ -28,13 +31,13 @@ public class Main {
             "마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.\n", 
             "그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어.\"\n"
         };
+        // 마지막 재귀에서는 배열을 교체
         if (num2 == 0) arr = new String[] {
             "",
             "",
             "\"재귀함수는 자기 자신을 호출하는 함수라네\"\n"
         };
-        String str = "\"재귀함수가 뭔가요?\"\n";
-        arr[1] = str;
+        arr[1] = "\"재귀함수가 뭔가요?\"\n";
 
         StringBuilder bar = new StringBuilder();
         for (int i = 0; i < num1 - num2; i++)
@@ -44,8 +47,11 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
         sb.append(joined);
+
+        // 마지막이 아니라면 재귀호출
         if (num2 != 0)
             sb.append(method(num1, num2 - 1));
+
         sb.append(bar).append("라고 답변하였지.\n");
 
         return sb;
