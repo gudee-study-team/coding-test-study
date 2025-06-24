@@ -1,4 +1,4 @@
-package d250617.b9095;
+// package d250617.b9095;
 
 /*
 규칙을 못 찾아서 검색해서 참고함
@@ -20,6 +20,10 @@ n>=4 인 경우부터는 앞의 세 개 경우의 갯수를 합친 것이 답
 /*
  * n = t-1일 때까지 갯수를 구하고, t-2, t-3을 더함
  */
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class Main {
 	public static int cal(int n) {
 		int num = 0;
@@ -35,10 +39,13 @@ public class Main {
 		return num;
 	}
 	
-	public static void main(String[] args) {
-		// TODO 버퍼리더로 입력받는 코드 추가하여 아래 수정
-		
-		int n = 7;
-		System.out.println(cal(n));
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());
+
+		for (int i = 0; i < t; i++) {
+			int n = Integer.parseInt(br.readLine());
+			System.out.println(cal(n));
+		}
 	}
 }
