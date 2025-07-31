@@ -10,7 +10,7 @@ public class Main {
         
         int n = Integer.parseInt(br.readLine());
 
-        Deque que = new ArrayDeque();
+        Deque<Integer> que = new ArrayDeque<>();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             String[] buff = br.readLine().split(" ");
