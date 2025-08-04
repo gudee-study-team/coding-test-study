@@ -7,21 +7,23 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /*
- * 1: d.push(x)
- * 2: d.pop() or -1
- * 3: d.size()
- * 4: d.isEmpty()? 1 : 0
- * 5: d.getLast() or -1
+ * 1: push(x)
+ * 2: pop() or -1
+ * 3: size()
+ * 4: isEmpty()? 1 : 0
+ * 5: getFirst() or -1 / getLast() 아님!!
  */
 public class Main {
 	void handle(Deque<Integer> d, String order, Integer x, StringBuilder sb) {
 		switch (order) {
 			case "1" -> d.push(x); // d.add(x) 아님
-			case "2" -> sb.append(d.size() > 0 ? d.pop() : -1).append("\n");
-			case "3" -> sb.append(d.size()).append("\n");
-			case "4" -> sb.append(d.isEmpty() ? 1 : 0).append("\n");
-			case "5" -> sb.append(d.size() > 0 ? d.getLast() : -1).append("\n");
+			case "2" -> sb.append(d.size() > 0 ? d.pop() : -1);
+			case "3" -> sb.append(d.size());
+			case "4" -> sb.append(d.isEmpty() ? 1 : 0);
+			case "5" -> sb.append(d.size() > 0 ? d.getFirst() : -1);
 		}
+		
+		if(!"1".equals(order)) sb.append("\n");
 	}
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {

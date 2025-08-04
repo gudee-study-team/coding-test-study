@@ -29,9 +29,7 @@ public class Main {
 			case "8" -> sb.append(d.size() > 0 ? d.getLast() : -1);
 		}
 		
-		if(!("1".equals(order) || "2".equals(order))) {
-			sb.append("\n");
-		}
+		if(!("1".equals(order) || "2".equals(order))) sb.append("\n");
 	}
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
