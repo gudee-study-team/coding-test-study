@@ -10,10 +10,11 @@ import java.util.NoSuchElementException;
 public class Main {
 	void pop(Deque<Integer> d, StringBuilder sb) {
 		try {
-			sb.append(d.pop()).append("\n");
+			sb.append(d.pop());
 		} catch (NoSuchElementException e) {
-			sb.append(-1).append("\n");
+			sb.append(-1);
 		}
+		sb.append("\n");
 	}
 	
 	void empty(Deque<Integer> d, StringBuilder sb) {
@@ -22,18 +23,20 @@ public class Main {
 	
 	void front(Deque<Integer> d, StringBuilder sb) {
 		try {
-			sb.append(d.getFirst()).append("\n");
+			sb.append(d.getFirst());
 		} catch (NoSuchElementException e) {
-			sb.append(-1).append("\n");
+			sb.append(-1);
 		}
+		sb.append("\n");
 	}
 	
 	void back(Deque<Integer> d, StringBuilder sb) {
 		try {
-			sb.append(d.getLast()).append("\n");
+			sb.append(d.getLast());
 		} catch (NoSuchElementException e) {
-			sb.append(-1).append("\n");
+			sb.append(-1);
 		}
+		sb.append("\n");
 	}
 	
 	void size(Deque<Integer> d, StringBuilder sb) {
