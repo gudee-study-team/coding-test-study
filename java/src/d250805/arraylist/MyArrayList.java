@@ -58,51 +58,93 @@ public class MyArrayList<E> implements MyList<E> {
 
   @Override // 요소를 삭제
   public boolean remove(Object value) {
+    for (int i = 0; i < this.pointer; i++) {
+      if (array[i].equals(value)) {
+        for (int j = i; j < this.pointer - 1; j++) {
+          array[j] = array[j + 1];
+        }
+
+        pointer--;
+        return true;
+      }
+    }
+
     return false;
   }
 
   @Override // 특정 위치에 있는 요소를 삭제
+  @SuppressWarnings("unchecked")
   public E remove(int index) {
-    return null;
+    if (index >= pointer || index < 0) throw new ArrayIndexOutOfBoundsException();
+
+    E result = (E) array[index];
+
+    if (index != pointer - 1) {
+      for (int i = index; i < this.pointer - 1; i++) {
+        array[i] = array[i + 1];
+      }
+    }
+
+    pointer--;
+    return result;
   }
 
   @Override // 요소 가져오기
+  @SuppressWarnings("unchecked")
   public E get(int index) {
-    return null;
+    if (index >= pointer || index < 0) throw new ArrayIndexOutOfBoundsException();
+
+    return (E) array[index];
   }
 
   @Override // 특정 위치에 있는 요소를 새 요소로 대체
   public void set(int index, E value) {
+    if (index >= pointer || index < 0) throw new ArrayIndexOutOfBoundsException();
 
+    array[index] = value;
   }
 
   @Override // 특정 요소가 리스트에 있는지 여부를 확인
   public boolean contains(Object value) {
+    for (int i = 0; i < this.pointer; i++) {
+      if (array[i].equals(value)) return true;
+    }
+
     return false;
   }
 
   @Override // 특정 요소가 몇 번째 위치에 있는지를 반환 (순차 검색)
   public int indexOf(Object value) {
-    return 0;
+    for (int i = 0; i < this.pointer; i++) {
+      if (array[i].equals(value)) return i;
+    }
+
+    return -1;
   }
 
   @Override // 특정 요소가 몇 번째 위치에 있는지를 반환 (역순 검색)
   public int lastIndexOf(Object o) {
-    return 0;
+    for (int i = pointer - 1; i >= 0; i--) {
+      if (array[i].equals(o)) return i;
+    }
+
+    return -1;
   }
 
   @Override // 요소의 개수를 반환
   public int size() {
-    return 0;
+    return this.pointer;
   }
 
   @Override // 요소가 비어있는지
   public boolean isEmpty() {
-    return false;
+    if (this.pointer == 0) return true;
+    else return false;
   }
 
   @Override // 요소를 모두 삭제
   public void clear() {
-
+    this.array = new Object[DEFAULT_CAPACITY];
+    this.pointer = 0;
   }
 }
