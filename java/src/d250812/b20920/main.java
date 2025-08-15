@@ -20,6 +20,7 @@ public class main {
             //없으면 기본값으로 0을 넣음
             map.put(word,map.getOrDefault(word,0)+1);
         }
+        //map의 key값이 단어
         List<String> list = new ArrayList<>(map.keySet());
         
         list.sort((o1, o2) -> {

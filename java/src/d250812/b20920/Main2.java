@@ -15,6 +15,7 @@ public class Main2 {
         Word word = null;
         //comparator 생성
         //count 큰값이 먼저 , 같을경우 단어길이 긴게 먼저 , 같을 경우 알파벳 정렬순
+        //treeSet은 compare만을 가지고 판단
         Comparator<Word> myComparator = new Comparator<Word>() {
             public int compare(Word o1, Word o2) {
                 if(o1.word.equals(o2.word)){

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 public class Main {
-    //Set에 무기재 댄스를 추는 사람의 이름을 저장해둠 
+    //Set에 무지개 댄스를 추는 사람의 이름을 저장해둠 
     //Set에 있는 사람을 만날경우 Set에 추가
     //최종적으로 Set의 데이터 개수를 출력
     public static void main(String[] args) throws Exception{
