@@ -51,6 +51,7 @@ class MyArrayList<T> implements MyList<T> {
 
 		resize(); // 필요시 배열 크기 증가
 
+		// 앞에서부터 하면 데이터가 덮어써져서 사라짐... 뒤에서부터 시작
 		// index부터 끝까지의 요소들을 한 칸씩 뒤로 이동
 		// 예: [A, B, C, D] → index=2에 NEW 삽입
 		// 이동 전: [A, B, C, D, _]
@@ -67,7 +68,7 @@ class MyArrayList<T> implements MyList<T> {
 	@Override
 	public boolean remove(Object value) {
 		// 매개변수가 null이면 예외 던짐
-		if (value == null) throw new NullPointerException(value.getClass().getName() +"is null");
+		if (value == null) throw new NullPointerException("Value cannot be null");
 		
 		// List가 비어있다면 false
 		if(size == 0) return false;
@@ -117,9 +118,13 @@ class MyArrayList<T> implements MyList<T> {
 
 	@Override
 	public T set(int index, T value) {
-		// 특정 위치에 있는 요소를 새 요소로 대체하고 기존 값 반환
-		if (index < 0 || index >= size) throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		// 매개변수가 null이면 예외 던짐
+		if (value == null) throw new NullPointerException("Value cannot be null");
+		
+		// index가 음수거나 현재 최대 인덱스보다 크면 예외 던짐
+		if (index < 0 || index > size - 1) throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
 
+		// 특정 위치에 있는 요소를 새 요소로 대체하고 기존 값 반환
 		T oldValue = (T) elementData[index];
 		elementData[index] = value;
 		return oldValue;
@@ -133,7 +138,7 @@ class MyArrayList<T> implements MyList<T> {
 	@Override
 	public int indexOf(Object value) {
 		// 매개변수가 null이면 예외 던짐
-		if (value == null) throw new NullPointerException(value.getClass().getName() +"is null");
+		if (value == null) throw new NullPointerException("Value cannot be null");
 		
 		// List가 비어있다면 -1
 		if(size == 0) return -1;
@@ -150,7 +155,7 @@ class MyArrayList<T> implements MyList<T> {
 	@Override
 	public int lastIndexOf(Object value) {
 		// 매개변수가 null이면 예외 던짐
-		if (value == null) throw new NullPointerException(value.getClass().getName() +"is null");
+		if (value == null) throw new NullPointerException("Value cannot be null");
 		
 		// List가 비어있다면 -1
 		if(size == 0) return -1;
